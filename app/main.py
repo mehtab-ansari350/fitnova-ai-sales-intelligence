@@ -1,21 +1,24 @@
 from fastapi import FastAPI
 
+from app.database.init_db import init_db
+from app.routers.call_router import router as call_router
+
 app = FastAPI(
-    title="FitNova AI Sales Call Intelligence System",
-    description="AI-powered platform for analyzing sales calls.",
-    version="1.0.0",
+    title="FitNova AI Sales Intelligence",
+    version="1.0.0"
 )
+
+
+@app.on_event("startup")
+def startup():
+    init_db()
+
+
+app.include_router(call_router)
 
 
 @app.get("/")
 def root():
     return {
-        "message": "Welcome to FitNova AI Sales Call Intelligence System"
-    }
-
-
-@app.get("/health")
-def health():
-    return {
-        "status": "healthy"
+        "message": "FitNova AI Sales Intelligence API is running"
     }

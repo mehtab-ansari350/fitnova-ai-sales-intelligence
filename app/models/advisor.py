@@ -58,3 +58,10 @@ class Advisor(Base):
         "Team",
         back_populates="advisors"
     )
+
+    calls = relationship(
+    "Call",
+    back_populates="advisor",
+    cascade="all, delete-orphan"
+    )
+    
