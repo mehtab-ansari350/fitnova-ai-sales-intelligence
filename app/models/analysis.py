@@ -23,7 +23,7 @@ class Analysis(Base):
     )
 
     overall_score = Column(
-        Float,
+        Integer,
         nullable=False
     )
 

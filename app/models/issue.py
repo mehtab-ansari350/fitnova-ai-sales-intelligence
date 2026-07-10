@@ -34,8 +34,18 @@ class Issue(Base):
         nullable=False
     )
 
-    timestamp = Column(
+    start_time = Column(
         Float,
+        nullable=True
+    )
+
+    end_time = Column(
+        Float,
+        nullable=True
+    )
+
+    suggestion = Column(
+        Text,
         nullable=True
     )
 

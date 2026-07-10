@@ -34,7 +34,7 @@ class TranscriptSegment(Base):
         nullable=False
     )
 
-    transcript = Column(
+    text = Column(
         Text,
         nullable=False
     )
